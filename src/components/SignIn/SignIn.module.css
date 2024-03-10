@@ -122,14 +122,22 @@
 	border-color: #ccc;
 	box-shadow: none;
 	cursor: not-allowed;
+	height: 40px;
+	min-height: 40px;
+	padding: 0 10px;
+	width: 340px;
+	font-size: 12px;
+	font-stretch: 100%;
+	font-weight: 400;
+	line-height: 28px;
 }
 
 .inputFilled {
 	display: block;
 	color: gray;
 	background-color: dodgerblue;
-	height: 30px;
-	min-height: 30px;
+	height: 40px;
+	min-height: 40px;
 	padding: 0 10px;
 	width: 340px;
 	font-size: 12px;
@@ -155,8 +163,8 @@
 	display: block;
 	color: gray;
 	background-color: #fff;
-	height: 30px;
-	min-height: 30px;
+	height: 40px;
+	min-height: 40px;
 	padding: 0 10px;
 	width: 340px;
 	font-size: 12px;
@@ -180,8 +188,8 @@
 	display: block;
 	color: rgb(250, 82, 82);
 	background-color: #fff;
-	height: 30px;
-	min-height: 30px;
+	height: 40px;
+	min-height: 40px;
 	padding: 0 10px;
 	width: 340px;
 	font-size: 12px;
