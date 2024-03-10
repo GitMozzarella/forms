@@ -1,0 +1,91 @@
+* {
+	font-family: 'Poppins', sans-serif;
+}
+
+.input {
+	box-sizing: border-box;
+	text-align: start;
+	font-size: 12px;
+	text-align: center;
+}
+
+.label {
+	display: inline-block;
+	line-height: 18.6px;
+	font-size: 12px;
+	font-weight: 500;
+	margin: 7px 0;
+}
+
+.description {
+	display: block;
+	font-size: 10px;
+	line-height: 12px;
+	margin: 5px 0;
+}
+
+.inputField {
+	display: block;
+	color: gray;
+	background-color: #fff;
+	height: 30px;
+	min-height: 30px;
+	padding: 0 10px;
+	width: 340px;
+	font-size: 12px;
+	font-stretch: 100%;
+	font-weight: 400;
+	line-height: 28px;
+	border: 2px solid #ccc;
+}
+
+.inputField:focus {
+	border: 2px solid dodgerblue;
+	outline: none;
+}
+
+.inputField:disabled {
+	background: #f8d8d8;
+	border-color: #f8d8d8;
+	box-shadow: none;
+	cursor: not-allowed;
+}
+
+.error {
+	display: block;
+	width: 340px;
+	font-size: 12px;
+	line-height: 14.4px;
+	color: rgb(250, 82, 82);
+}
+
+.inputFieldError {
+	display: block;
+	color: rgb(250, 82, 82);
+	background-color: #fff;
+	height: 30px;
+	min-height: 30px;
+	padding: 0 10px;
+	width: 340px;
+	font-size: 12px;
+	font-stretch: 100%;
+	font-weight: 400;
+	line-height: 28px;
+	border: 2px solid rgb(250, 82, 82);
+}
+
+.inputFieldError:focus {
+	border: 2px solid rgb(250, 82, 82);
+	outline: none;
+}
+
+.inputFieldError:disabled {
+	background: #f8d8d8;
+	border-color: rgb(250, 82, 82);
+	box-shadow: none;
+	cursor: not-allowed;
+}
+
+::placeholder {
+	color: #ced4da;
+}
