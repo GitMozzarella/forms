@@ -1,5 +1,9 @@
+* {
+}
+
 body {
-	background-color: rgb(15, 16, 63);
+	background-color: rgb(255, 255, 255);
+	font-family: 'Poppins', sans-serif;
 }
 
 .app {
@@ -7,5 +11,7 @@ body {
 }
 
 .header {
-	background-color: rgb(4, 58, 58);
+	background-color: rgb(255, 255, 255);
+	font-size: 50px;
+	font-weight: 700;
 }
