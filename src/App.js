@@ -1,9 +1,9 @@
-import './App.css'
+import styles from './App.module.css'
 
 function App() {
 	return (
-		<div className='App'>
-			<header className='App-header'></header>
+		<div className={styles.app}>
+			<header className={styles.header}>React Forms</header>
 		</div>
 	)
 }
