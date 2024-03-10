@@ -1,0 +1,33 @@
+.selector {
+	box-sizing: border-box;
+	text-align: start;
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+
+.label {
+	display: inline-block;
+	line-height: 18.6px;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.selectField {
+	display: block;
+	background-color: rgb(255, 255, 255);
+	height: 33.2px;
+	min-height: 30px;
+	padding: 0 10px;
+	width: 363.2px;
+	font-size: 12px;
+	font-stretch: 100%;
+	font-weight: 400;
+	line-height: 28px;
+	border: 2px solid rgb(206, 212, 218);
+	border-radius: 5px;
+}
+
+.selectField:focus {
+	border: 2px solid dodgerblue;
+	outline: none;
+}
