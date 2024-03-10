@@ -1,0 +1,203 @@
+.signin {
+	display: flex;
+	background-color: #fff; /* белый фон */
+	direction: row;
+	margin: 0 auto;
+	margin-bottom: 50px;
+	width: 70%;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+}
+
+.settings {
+	margin: 0 -33px 0 300px;
+	padding: 35px;
+	text-align: start;
+	font-size: 16px;
+	border: 2px solid rgb(0, 107, 207);
+	border-radius: 10px;
+}
+
+.toggle {
+	appearance: none;
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: transparent;
+	position: relative;
+	border: 0;
+	outline: 0;
+	cursor: pointer;
+	margin: 10px;
+}
+
+.toggle:after {
+	content: '';
+	width: 60px;
+	height: 28px;
+	display: inline-block;
+	background: rgba(255, 255, 255, 0.55); /* белый фон */
+	border-radius: 18px;
+	clear: both;
+}
+
+.toggle:before {
+	content: '';
+	width: 32px;
+	height: 32px;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: -3px;
+	border-radius: 50%;
+	background: rgb(255, 255, 255); /* белый фон */
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.toggle:checked:before {
+	left: 32px;
+	box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.toggle:checked:after {
+	background: dodgerblue; /* синий фон */
+}
+
+.toggle,
+.toggle:before,
+.toggle:after,
+.toggle:checked:before,
+.toggle:checked:after {
+	transition: ease 0.3s;
+	-webkit-transition: ease 0.3s;
+	-moz-transition: ease 0.3s;
+	-o-transition: ease 0.3s;
+}
+
+.inputField {
+	display: block;
+	color: gray;
+	background-color: #fff;
+	height: 40px;
+	min-height: 40px;
+	padding: 0 10px;
+	width: 340px;
+	font-size: 12px;
+	font-stretch: 100%;
+	font-weight: 400;
+	line-height: 28px;
+	border: 2px solid dodgerblue;
+}
+
+.inputField:focus {
+	border: 2px solid dodgerblue;
+	outline: none;
+}
+
+.inputField:disabled {
+	background: #fff;
+	border-color: #ccc;
+	box-shadow: none;
+	cursor: not-allowed;
+}
+
+.inputFilled {
+	display: block;
+	color: gray;
+	background-color: dodgerblue; /* синий фон */
+	height: 30px;
+	min-height: 30px;
+	padding: 0 10px;
+	width: 340px;
+	font-size: 12px;
+	font-stretch: 100%;
+	font-weight: 400;
+	line-height: 28px;
+	border: 2px solid dodgerblue; /* синяя рамка */
+}
+
+.inputFilled:focus {
+	border: 2px solid dodgerblue;
+	outline: none;
+}
+
+.inputFilled:disabled {
+	background: #fff; /* белый фон */
+	border-color: #ccc; /* серая рамка */
+	box-shadow: none;
+	cursor: not-allowed;
+}
+
+.inputUnstyled {
+	display: block;
+	color: gray;
+	background-color: #fff; /* белый фон */
+	height: 30px;
+	min-height: 30px;
+	padding: 0 10px;
+	width: 340px;
+	font-size: 12px;
+	font-stretch: 100%;
+	font-weight: 400;
+	line-height: 28px;
+	border: none;
+}
+
+.inputUnstyled:focus {
+	outline: none;
+}
+
+.inputUnstyled:disabled {
+	background: #fff;
+	box-shadow: none;
+	cursor: not-allowed;
+}
+
+.inputFieldError {
+	display: block;
+	color: rgb(250, 82, 82);
+	background-color: #fff;
+	height: 30px;
+	min-height: 30px;
+	padding: 0 10px;
+	width: 340px;
+	font-size: 12px;
+	font-stretch: 100%;
+	font-weight: 400;
+	line-height: 28px;
+	border: 2px solid rgb(250, 82, 82); /* красная рамка */
+}
+
+.inputFieldError:focus {
+	border: 2px solid rgb(250, 82, 82);
+	outline: none;
+}
+
+.inputFieldError:disabled {
+	background: #fff;
+	border-color: rgb(250, 82, 82);
+	box-shadow: none;
+	cursor: not-allowed;
+}
+
+.reset {
+	display: inline-block;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	background-color: #fff;
+	color: dodgerblue; /* синий цвет текста */
+	border: 2px solid dodgerblue; /* синяя рамка */
+	border-radius: 0.375rem;
+	cursor: pointer;
+	transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.reset:hover {
+	background-color: dodgerblue; /* синий фон */
+	color: #fff; /* белый цвет текста */
+	border-color: dodgerblue; /* синяя рамка */
+}
+
+.reset:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.5); /* синяя тень при фокусировке */
+}
