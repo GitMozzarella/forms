@@ -80,24 +80,26 @@ export function SignIn({ onSubmit }) {
 		<div className={styles.signin}>
 			<div className={styles.inputs}>
 				<form ref={formRef} onSubmit={handleSubmit}>
-					<Input
-						className={inputsStyle}
-						label={settingsInputs.label}
-						required={settingsInputs.asterisk}
-						autoComplete="email"
-						type="email"
-						id="email"
-						name="email"
-						placeholder={settingsInputs.placeholder}
-						value={inputs.email}
-						description={settingsInputs.description}
-						error={settingsInputs.error}
-						variant={settingsInputs.variant}
-						radius={settingsInputs.radius}
-						size={settingsInputs.size}
-						disabled={settingsInputs.disabled}
-						onChange={handleChange}
-					/>
+					<div>
+						<Input
+							className={inputsStyle}
+							label={settingsInputs.label}
+							required={settingsInputs.asterisk}
+							autoComplete="email"
+							type="email"
+							id="email"
+							name="email"
+							placeholder={settingsInputs.placeholder}
+							value={inputs.email}
+							description={settingsInputs.description}
+							error={settingsInputs.error}
+							variant={settingsInputs.variant}
+							radius={settingsInputs.radius}
+							size={settingsInputs.size}
+							disabled={settingsInputs.disabled}
+							onChange={handleChange}
+						/>
+					</div>
 					<Input
 						className={inputsStyle}
 						label="Password"
