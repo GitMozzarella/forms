@@ -1,5 +1,6 @@
 import { SignIn } from '../SignIn/SignIn'
 import { SignUp } from '../SignUp/SignUp.jsx'
+import styles from './Form.module.css'
 
 export function Form() {
 	const onSubmitSignin = (email, password) => {
@@ -19,7 +20,9 @@ export function Form() {
 
 	return (
 		<div>
+			<header className={styles.header}>SignIn</header>
 			<SignIn onSubmit={onSubmitSignin} />
+			<header className={styles.header}>SignUp</header>
 			<SignUp onSubmit={onSubmitSignup} />
 		</div>
 	)
