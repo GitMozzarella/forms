@@ -87,8 +87,8 @@ export function SignIn({ onSubmit }) {
 							required={settingsInputs.asterisk}
 							autoComplete="email"
 							type="email"
-							id="email"
-							name="email"
+							id="emailIn"
+							name="emailIn"
 							placeholder={settingsInputs.placeholder}
 							value={inputs.email}
 							description={settingsInputs.description}
@@ -105,8 +105,8 @@ export function SignIn({ onSubmit }) {
 						label="Password"
 						required={settingsInputs.asterisk}
 						type="password"
-						id="password"
-						name="password"
+						id="passwordIn"
+						name="passwordIn"
 						placeholder="Your password"
 						value={inputs.password}
 						description="Insert your password here"
@@ -126,17 +126,17 @@ export function SignIn({ onSubmit }) {
 					<Input
 						label="Placeholder"
 						type="text"
-						id="placeholder"
-						name="placeholder"
-						placeholder="Placeholder"
+						id="placeholderIn"
+						name="placeholderIn"
+						placeholder="PlaceholderIn"
 						defaultValue={settingsInputs.placeholder}
 						radius={5}
 					/>
 					<Input
 						label="Label"
 						type="text"
-						id="label"
-						name="label"
+						id="labelIn"
+						name="labelIn"
 						placeholder="Label"
 						defaultValue={settingsInputs.label}
 						radius={5}
@@ -144,31 +144,31 @@ export function SignIn({ onSubmit }) {
 					<Input
 						label="Description"
 						type="text"
-						id="description"
-						name="description"
+						id="descriptionIn"
+						name="descriptionIn"
 						placeholder="Description"
 						radius={5}
 					/>
 					<Input
 						label="Error"
 						type="text"
-						id="error"
-						name="error"
+						id="errorIn"
+						name="errorIn"
 						placeholder="Error"
 						radius={5}
 					/>
 					<Selector
 						label="Variant"
 						type="select"
-						id="variant"
-						name="variant"
+						id="variantIn"
+						name="variantIn"
 						defaultValue={settingsInputs.variant}
 					/>
 					<Input
 						label="Radius"
 						type="range"
-						id="radius"
-						name="radius"
+						id="radiusIn"
+						name="radiusIn"
 						min="0"
 						max="15"
 						step="5"
@@ -177,8 +177,8 @@ export function SignIn({ onSubmit }) {
 					<Input
 						label="Size"
 						type="range"
-						id="size"
-						name="size"
+						id="sizeIn"
+						name="sizeIn"
 						min="12"
 						max="28"
 						step="4"
@@ -188,16 +188,16 @@ export function SignIn({ onSubmit }) {
 						className={styles.toggle}
 						label="Disabled"
 						type="checkbox"
-						id="disabled"
-						name="disabled"
+						id="disabledIn"
+						name="disabledIn"
 						defaultChecked={settingsInputs.disabled}
 					/>
 					<Input
 						className={styles.toggle}
 						label="With asterisk"
 						type="checkbox"
-						id="asterisk"
-						name="asterisk"
+						id="asteriskIn"
+						name="asteriskIn"
 						defaultChecked={settingsInputs.asterisk}
 					/>
 					<button className={styles.reset} onClick={handleReset}>

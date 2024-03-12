@@ -47,18 +47,18 @@
 
 .toggle:after {
 	content: '';
-	width: 60px;
-	height: 28px;
+	width: 58px;
+	height: 29px;
 	display: inline-block;
-	background: rgba(90, 90, 90, 0.55);
+	background: rgba(196, 195, 195, 0.55);
 	border-radius: 18px;
 	clear: both;
 }
 
 .toggle:before {
 	content: '';
-	width: 32px;
-	height: 32px;
+	width: 36px;
+	height: 36px;
 	display: block;
 	position: absolute;
 	left: 0;
@@ -69,12 +69,12 @@
 }
 
 .toggle:checked:before {
-	left: 32px;
+	left: 36px;
 	box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .toggle:checked:after {
-	background: dodgerblue;
+	background: rgb(0, 135, 255);
 }
 
 .toggle,
