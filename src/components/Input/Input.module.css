@@ -23,13 +23,32 @@
 	margin: 5px 0;
 }
 
+.inputFieldContainer {
+	position: relative;
+}
+
+.icon {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: default;
+}
+.icon svg {
+	width: 20px;
+	height: 20px;
+	color: rgb(78, 78, 78);
+}
+
 .inputField {
+	padding-left: 15px;
 	display: block;
 	color: gray;
 	background-color: #fff;
 	height: 30px;
 	min-height: 30px;
-	padding: 0 10px;
 	width: 370px;
 	font-size: 12px;
 	font-stretch: 100%;
