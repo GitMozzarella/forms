@@ -1,4 +1,9 @@
 import { useState, useRef } from 'react'
+import { Input } from '../Input/Input'
+import { Button } from '../Button/Button'
+import { Selector } from '../Selector/Selector'
+import { MdOutlineAlternateEmail } from 'react-icons/md'
+import styles from './SignUp.module.css'
 
 export function SignUp({ onSubmit }) {
 	const formRef = useRef(null)
@@ -10,12 +15,44 @@ export function SignUp({ onSubmit }) {
 		password: '',
 		confirmPassword: '',
 	})
+	const formSettingsInputsRef = useRef(null)
+	const [settingsInputs, setSettingsInputs] = useState({
+		placeholder: 'Your name',
+		label: 'Name',
+		description: '',
+		error: null,
+		variant: 'Default',
+		radius: 5,
+		size: 16,
+		disabled: false,
+		asterisk: false,
+		icon: <MdOutlineAlternateEmail />,
+	})
 
 	const handleChange = (e) => {
 		setInputs((prev) => ({
 			...prev,
 			[e.target.name]: e.target.value,
 		}))
+	}
+
+	const handleSettingsInputsChange = (e) => {
+		if (e.target.name === 'disabled' || e.target.name === 'asterisk') {
+			setSettingsInputs((prev) => ({
+				...prev,
+				[e.target.name]: !prev[e.target.name],
+			}))
+		} else if (e.target.name === 'icon') {
+			setSettingsInputs((prev) => ({
+				...prev,
+				icon: e.target.value,
+			}))
+		} else {
+			setSettingsInputs((prev) => ({
+				...prev,
+				[e.target.name]: e.target.value,
+			}))
+		}
 	}
 
 	const handleSubmit = (e) => {
@@ -39,9 +76,258 @@ export function SignUp({ onSubmit }) {
 		})
 	}
 
+	const inputsStyle = settingsInputs.error
+		? styles.inputFieldError
+		: settingsInputs.variant === 'Default'
+		? styles.inputField
+		: settingsInputs.variant === 'Filled'
+		? styles.inputFilled
+		: styles.inputUnstyled
+
+	const inputWithIcon = settingsInputs.error
+		? styles.inputWithIconError
+		: settingsInputs.variant === 'Default'
+		? styles.inputWithIconField
+		: settingsInputs.variant === 'Filled'
+		? styles.inputWithIconFilled
+		: styles.inputWithIconUnstyled
+
+	const handleReset = (e) => {
+		e.preventDefault()
+		formRef.current.reset()
+		setInputs({
+			name: '',
+			nickname: '',
+			email: '',
+			gender: '',
+			password: '',
+			confirmPassword: '',
+		})
+		formSettingsInputsRef.current.reset()
+		setSettingsInputs({
+			placeholder: 'Your name',
+			label: 'Name',
+			description: '',
+			error: null,
+			variant: 'Default',
+			radius: 5,
+			size: 16,
+			disabled: false,
+			asterisk: false,
+			icon: <MdOutlineAlternateEmail />,
+		})
+	}
+
 	return (
-		<div>
-			<form></form>
+		<div className={styles.signup}>
+			<div className={styles.inputs}>
+				<form ref={formRef} onSubmit={handleSubmit}>
+					<Input
+						className={inputsStyle}
+						label={settingsInputs.label}
+						required={settingsInputs.asterisk}
+						autoComplete="name"
+						type="text"
+						id="name"
+						name="name"
+						placeholder={settingsInputs.placeholder}
+						value={inputs.name}
+						description={settingsInputs.description}
+						error={settingsInputs.error}
+						variant={settingsInputs.variant}
+						radius={settingsInputs.radius}
+						size={settingsInputs.size}
+						disabled={settingsInputs.disabled}
+						onChange={handleChange}
+					/>
+					<Input
+						className={inputWithIcon}
+						label="Nickname"
+						required={settingsInputs.asterisk}
+						type="text"
+						id="nickname"
+						name="nickname"
+						placeholder="Your nickname"
+						value={inputs.nickname}
+						description={settingsInputs.description}
+						error={settingsInputs.error}
+						variant={settingsInputs.variant}
+						radius={settingsInputs.radius}
+						size={settingsInputs.size}
+						disabled={settingsInputs.disabled}
+						onChange={handleChange}
+						icon={<MdOutlineAlternateEmail />}
+					/>
+					<Input
+						className={inputsStyle}
+						label="Email"
+						required={settingsInputs.asterisk}
+						autoComplete="email"
+						type="email"
+						id="emailUp"
+						name="emailUp"
+						placeholder="Your email"
+						value={inputs.email}
+						description={settingsInputs.description}
+						error={settingsInputs.error}
+						variant={settingsInputs.variant}
+						radius={settingsInputs.radius}
+						size={settingsInputs.size}
+						disabled={settingsInputs.disabled}
+						onChange={handleChange}
+					/>
+					<div className={styles.genderContainer}>
+						<div className={styles.male}>
+							<Input
+								className={styles.gender}
+								label="Male"
+								required={settingsInputs.asterisk}
+								type="radio"
+								id="male"
+								name="gender"
+								value="male"
+								size={settingsInputs.size}
+								disabled={settingsInputs.disabled}
+								onChange={handleChange}
+							/>
+						</div>
+						<div className={styles.female}>
+							<Input
+								className={styles.gender}
+								label="Female"
+								required={settingsInputs.asterisk}
+								type="radio"
+								id="female"
+								name="gender"
+								value="female"
+								size={settingsInputs.size}
+								disabled={settingsInputs.disabled}
+								onChange={handleChange}
+							/>
+						</div>
+					</div>
+					<Input
+						label="Password"
+						className={inputsStyle}
+						required={settingsInputs.asterisk}
+						type="password"
+						id="passwordUp"
+						name="passwordUp"
+						placeholder="Your password"
+						value={inputs.password}
+						description="Insert your password here"
+						error={settingsInputs.error}
+						variant={settingsInputs.variant}
+						radius={settingsInputs.radius}
+						size={settingsInputs.size}
+						disabled={settingsInputs.disabled}
+						onChange={handleChange}
+					/>
+					<Input
+						label="Confirm Password"
+						className={inputsStyle}
+						required={settingsInputs.asterisk}
+						type="password"
+						id="confirmPassword"
+						name="confirmPassword"
+						placeholder="Confirm password"
+						value={inputs.confirmPassword}
+						description="Confirm your password here"
+						error={settingsInputs.error}
+						variant={settingsInputs.variant}
+						radius={settingsInputs.radius}
+						size={settingsInputs.size}
+						disabled={settingsInputs.disabled}
+						onChange={handleChange}
+					/>
+					<Button type="submit">Submit</Button>
+				</form>
+			</div>
+
+			<div className={styles.settings}>
+				<form ref={formSettingsInputsRef} onChange={handleSettingsInputsChange}>
+					<Input
+						label="Placeholder"
+						type="text"
+						id="placeholderUp"
+						name="placeholderUp"
+						placeholder="PlaceholderUp"
+						defaultValue={settingsInputs.placeholder}
+						radius={5}
+					/>
+					<Input
+						label="Label"
+						type="text"
+						id="labelUp"
+						name="labelUp"
+						placeholder="Label"
+						defaultValue={settingsInputs.label}
+						radius={5}
+					/>
+					<Input
+						label="Description"
+						type="text"
+						id="descriptionUp"
+						name="descriptionUp"
+						placeholder="Description"
+						radius={5}
+					/>
+					<Input
+						label="Error"
+						type="text"
+						id="errorUp"
+						name="errorUp"
+						placeholder="Error"
+						radius={5}
+					/>
+					<Selector
+						label="Variant"
+						type="select"
+						id="variantUp"
+						name="variantUp"
+						defaultValue={settingsInputs.variant}
+					/>
+					<Input
+						label="Radius"
+						type="range"
+						id="radiusUp"
+						name="radiusUp"
+						min="0"
+						max="15"
+						step="5"
+						defaultValue={settingsInputs.radius}
+					/>
+					<Input
+						label="Size"
+						type="range"
+						id="sizeUp"
+						name="sizeUp"
+						min="12"
+						max="28"
+						step="4"
+						defaultValue={settingsInputs.size}
+					/>
+					<Input
+						className={styles.toggle}
+						label="Disabled"
+						type="checkbox"
+						id="disabledUp"
+						name="disabledUp"
+						defaultChecked={settingsInputs.disabled}
+					/>
+					<Input
+						className={styles.toggle}
+						label="With asterisk"
+						type="checkbox"
+						id="asteriskUp"
+						name="asteriskUp"
+						defaultChecked={settingsInputs.asterisk}
+					/>
+					<button className={styles.reset} onClick={handleReset}>
+						Reset
+					</button>
+				</form>
+			</div>
 		</div>
 	)
 }

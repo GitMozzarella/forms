@@ -1,11 +1,8 @@
 body {
-	background-color: rgb(15, 16, 63);
+	background-color: rgb(255, 255, 255);
+	font-family: 'Poppins', sans-serif;
 }
 
 .app {
 	text-align: center;
-}
-
-.header {
-	background-color: rgb(4, 58, 58);
 }
