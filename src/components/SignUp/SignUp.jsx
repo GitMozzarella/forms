@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { Input } from '../Input/Input'
 import { Button } from '../Button/Button'
 import { Selector } from '../Selector/Selector'
+import { MdOutlineAlternateEmail } from 'react-icons/md'
 import styles from './SignUp.module.css'
 
 export function SignUp({ onSubmit }) {
@@ -14,7 +15,6 @@ export function SignUp({ onSubmit }) {
 		password: '',
 		confirmPassword: '',
 	})
-
 	const formSettingsInputsRef = useRef(null)
 	const [settingsInputs, setSettingsInputs] = useState({
 		placeholder: 'Your name',
@@ -26,6 +26,7 @@ export function SignUp({ onSubmit }) {
 		size: 16,
 		disabled: false,
 		asterisk: false,
+		icon: <MdOutlineAlternateEmail />,
 	})
 
 	const handleChange = (e) => {
@@ -40,6 +41,11 @@ export function SignUp({ onSubmit }) {
 			setSettingsInputs((prev) => ({
 				...prev,
 				[e.target.name]: !prev[e.target.name],
+			}))
+		} else if (e.target.name === 'icon') {
+			setSettingsInputs((prev) => ({
+				...prev,
+				icon: e.target.value,
 			}))
 		} else {
 			setSettingsInputs((prev) => ({
@@ -78,6 +84,14 @@ export function SignUp({ onSubmit }) {
 		? styles.inputFilled
 		: styles.inputUnstyled
 
+	const inputWithIcon = settingsInputs.error
+		? styles.inputWithIconError
+		: settingsInputs.variant === 'Default'
+		? styles.inputWithIconField
+		: settingsInputs.variant === 'Filled'
+		? styles.inputWithIconFilled
+		: styles.inputWithIconUnstyled
+
 	const handleReset = (e) => {
 		e.preventDefault()
 		formRef.current.reset()
@@ -100,6 +114,7 @@ export function SignUp({ onSubmit }) {
 			size: 16,
 			disabled: false,
 			asterisk: false,
+			icon: <MdOutlineAlternateEmail />,
 		})
 	}
 
@@ -126,7 +141,7 @@ export function SignUp({ onSubmit }) {
 						onChange={handleChange}
 					/>
 					<Input
-						className={inputsStyle}
+						className={inputWithIcon}
 						label="Nickname"
 						required={settingsInputs.asterisk}
 						type="text"
@@ -141,6 +156,7 @@ export function SignUp({ onSubmit }) {
 						size={settingsInputs.size}
 						disabled={settingsInputs.disabled}
 						onChange={handleChange}
+						icon={<MdOutlineAlternateEmail />}
 					/>
 					<Input
 						className={inputsStyle}
@@ -148,8 +164,8 @@ export function SignUp({ onSubmit }) {
 						required={settingsInputs.asterisk}
 						autoComplete="email"
 						type="email"
-						id="email"
-						name="email"
+						id="emailUp"
+						name="emailUp"
 						placeholder="Your email"
 						value={inputs.email}
 						description={settingsInputs.description}
@@ -195,8 +211,8 @@ export function SignUp({ onSubmit }) {
 						className={inputsStyle}
 						required={settingsInputs.asterisk}
 						type="password"
-						id="password"
-						name="password"
+						id="passwordUp"
+						name="passwordUp"
 						placeholder="Your password"
 						value={inputs.password}
 						description="Insert your password here"
@@ -233,17 +249,17 @@ export function SignUp({ onSubmit }) {
 					<Input
 						label="Placeholder"
 						type="text"
-						id="placeholder"
-						name="placeholder"
-						placeholder="Placeholder"
+						id="placeholderUp"
+						name="placeholderUp"
+						placeholder="PlaceholderUp"
 						defaultValue={settingsInputs.placeholder}
 						radius={5}
 					/>
 					<Input
 						label="Label"
 						type="text"
-						id="label"
-						name="label"
+						id="labelUp"
+						name="labelUp"
 						placeholder="Label"
 						defaultValue={settingsInputs.label}
 						radius={5}
@@ -251,31 +267,31 @@ export function SignUp({ onSubmit }) {
 					<Input
 						label="Description"
 						type="text"
-						id="description"
-						name="description"
+						id="descriptionUp"
+						name="descriptionUp"
 						placeholder="Description"
 						radius={5}
 					/>
 					<Input
 						label="Error"
 						type="text"
-						id="error"
-						name="error"
+						id="errorUp"
+						name="errorUp"
 						placeholder="Error"
 						radius={5}
 					/>
 					<Selector
 						label="Variant"
 						type="select"
-						id="variant"
-						name="variant"
+						id="variantUp"
+						name="variantUp"
 						defaultValue={settingsInputs.variant}
 					/>
 					<Input
 						label="Radius"
 						type="range"
-						id="radius"
-						name="radius"
+						id="radiusUp"
+						name="radiusUp"
 						min="0"
 						max="15"
 						step="5"
@@ -284,8 +300,8 @@ export function SignUp({ onSubmit }) {
 					<Input
 						label="Size"
 						type="range"
-						id="size"
-						name="size"
+						id="sizeUp"
+						name="sizeUp"
 						min="12"
 						max="28"
 						step="4"
@@ -295,16 +311,16 @@ export function SignUp({ onSubmit }) {
 						className={styles.toggle}
 						label="Disabled"
 						type="checkbox"
-						id="disabled"
-						name="disabled"
+						id="disabledUp"
+						name="disabledUp"
 						defaultChecked={settingsInputs.disabled}
 					/>
 					<Input
 						className={styles.toggle}
 						label="With asterisk"
 						type="checkbox"
-						id="asterisk"
-						name="asterisk"
+						id="asteriskUp"
+						name="asteriskUp"
 						defaultChecked={settingsInputs.asterisk}
 					/>
 					<button className={styles.reset} onClick={handleReset}>
